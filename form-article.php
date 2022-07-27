@@ -139,7 +139,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <?php endif; ?>
                     </div>
                     <div class="form-actions">
+                        <?php $url = "/form-article.php?id=" . $article['id'] ?>
+                        <?php if (strpos($url, $article['id']) == true) : ?>
+                        <a href="/show-article.php?id=<?= $article['id'] ?>" class="btn btn-secondary"
+                            type="button">Annuler</a>
+                        <?php else : ?>
                         <a href="/" class="btn btn-secondary" type="button">Annuler</a>
+                        <?php endif ?>
+
                         <button class="btn btn-primary" type="submit"><?= $id ? 'Modifier' : 'Sauvegarder' ?></button>
                     </div>
                 </form>
